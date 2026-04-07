@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annter Shop & Anngie Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Mitr:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'mitr': ['Mitr', 'sans-serif'],
+                        'fredoka': ['Fredoka', 'sans-serif'],
+                    },
+                    colors: {
+                        'pj-bg': '#f3f4e9', 
+                        'pj-green-light': '#b9c4a6', 
+                        'pj-green-main': '#82917a', 
+                        'pj-green-dark': '#404f48', 
+                        'pj-cream-light': '#fdfcf0', 
+                        'pj-cream-main': '#ecead9', 
+                        'pj-white': '#ffffff',
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(64, 79, 72, 0.2)',
+                        'hard': '4px 4px 0px 0px rgba(64, 79, 72, 0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Mitr', sans-serif; background-color: #f3f4e9; overflow-x: hidden; color: #404f48; }
+        .font-eng { font-family: 'Fredoka', sans-serif; }
+        .shape-header { border-radius: 40px 100px 100px 40px; position: relative; }
+        .shape-info { border-radius: 20px; }
+        .shape-bubble-left { border-radius: 20px; position: relative; }
+        .shape-bubble-left::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-width: 15px 0 15px 20px;
+            border-color: transparent transparent transparent #82917a;
+        }
+        .shape-nota { border-radius: 20px; position: relative; }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #b9c4a6; border-radius: 10px; }
+        .modal { transition: opacity 0.3s ease, visibility 0.3s ease; }
+        .modal.active { opacity: 1; visibility: visible; }
+        .modal.inactive { opacity: 0; visibility: hidden; }
+        .modal-content { transition: transform 0.3s ease; transform: scale(0.95); }
+        .modal.active .modal-content { transform: scale(1); }
+        .bg-shapes { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: -1; pointer-events: none; overflow: hidden; }
+    </style>
+</head>
+<body class="antialiased relative selection:bg-pj-green-light selection:text-pj-green-dark">
+
+    <div class="bg-shapes">
+        <svg class="absolute top-10 -left-10 w-64 h-64 text-pj-green-light opacity-30" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="currentColor" d="M44.7,-76.4C58.8,-69.2,71.8,-59.1,81.3,-46.3C90.8,-33.5,96.8,-18,95.5,-2.9C94.2,12.2,85.6,26.9,75.3,39.6C65,52.3,53,63.1,39.4,70.5C25.8,77.9,10.6,81.9,-4.3,81.4C-19.2,80.9,-33.7,75.9,-47.5,68.4C-61.3,60.9,-74.3,50.9,-82.4,37.6C-90.5,24.3,-93.7,7.7,-91.4,-8.2C-89.1,-24.1,-81.3,-39.3,-69.9,-51.1C-58.5,-62.9,-43.5,-71.3,-29.1,-75.7C-14.7,-80.1,-1.2,-80.5,12.5,-78.9C26.2,-77.3,30.6,-83.6,44.7,-76.4Z" transform="translate(100 100) scale(1.1)" />
+        </svg>
+    </div>
+
+    <main class="max-w-[500px] mx-auto min-h-screen px-4 py-12 relative z-10 flex flex-col gap-8">
+        
+        <section class="relative">
+            <div class="flex gap-2 absolute -top-6 left-4 z-40">
+                <div class="bg-pj-white text-pj-green-dark text-[10px] px-3 py-1 rounded-full shadow-sm border border-pj-green-light font-bold">Annter Shop</div>
+                <div class="bg-pj-green-main text-pj-white text-[10px] px-3 py-1 rounded-full shadow-sm font-bold">สะสมแต้มได้</div>
+            </div>
+
+            <div class="absolute -right-4 top-[80%] w-12 h-32 border-r-4 border-b-4 border-pj-green-light rounded-br-[40px] z-0"></div>
+            <div class="shape-header bg-pj-green-main p-8 pr-16 shadow-soft z-10 relative mt-4 ml-[-20px] mr-4 text-white">
+                <div class="absolute -top-10 -right-4 z-30 transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                    <svg class="absolute -top-4 -left-5 w-12 h-12 text-pj-cream-light drop-shadow-md z-40" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+                    </svg>
+                    <div class="w-32 h-36 bg-pj-white p-2.5 pb-8 rounded shadow-lg border border-pj-green-light/50 flex flex-col items-center relative">
+                        <div class="w-full h-full bg-pj-green-light/20 overflow-hidden rounded-sm">
+                            <img src="https://i.postimg.cc/HW3003mn/att-yz2GCUYC92mkia-Jeirmzr-Zg-Cputx-A9ME-kj-Oaa-Fhbng.jpg" alt="โลโก้ Annter Shop" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <h1 class="font-eng text-4xl text-pj-white font-bold tracking-wide drop-shadow-md mb-2 relative z-10 leading-tight">Annter<br><span class="text-2xl ml-4">Shop & Design</span></h1>
+                <div class="inline-block bg-pj-green-dark text-pj-white font-eng px-4 py-1.5 rounded-full text-sm mt-3 shadow-md relative z-10">
+                    Welcome to my kingdom
+                </div>
+            </div>
+            <p class="mt-6 ml-6 text-sm font-medium pr-4 relative z-10">
+                อาณาจักรทำป้าย ขายฟอนต์ งานป้ายแบบเอฟ สติ๊กเกอร์เฟส/ไลน์ และกลุ่มของตกแต่งน่ารักๆ อีกมากมาย
+            </p>
+        </section>
+
+        <section class="mx-4">
+            <div class="bg-pj-white p-4 rounded-2xl border-2 border-dashed border-pj-green-main flex flex-col items-center gap-3">
+                <div class="flex items-center gap-2 text-pj-green-dark font-bold text-sm">
+                    <span class="relative flex h-3 w-3">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                    </span>
+                    สถานะคิว: เปิดรับงานปกติ
+                </div>
+                <a href="https://docs.google.com/spreadsheets/d/10TClZU3rR_bJE1-CWcwpCVo073FgFXuPX_Moh_jvNp0/edit?usp=drivesdk" target="_blank" class="w-full bg-pj-green-main text-pj-white text-center py-2 rounded-xl text-sm font-bold shadow-sm hover:bg-pj-green-dark transition-all">
+                    คลิกเพื่อเช็คคิวงาน (มี.ค. 69)
+                </a>
+            </div>
+        </section>
+
+        <section class="relative ml-8">
+            <div class="absolute -top-3 right-6 bg-pj-cream-light text-pj-green-dark font-eng font-bold px-4 py-1 rounded-full text-xs shadow-sm z-20 border-2 border-pj-white flex items-center gap-1">
+                Services
+            </div>
+            <div class="shape-info bg-pj-white border-2 border-pj-green-light p-6 shadow-soft relative z-10 flex gap-4">
+                <div class="flex-1">
+                    <div class="flex items-center gap-2 mb-3">
+                        <h2 class="font-eng text-xl font-bold uppercase tracking-wider text-pj-green-main">Our Works</h2>
+                    </div>
+                    <ul class="text-xs space-y-2 mb-4 list-none pl-1 font-semibold">
+                        <li class="flex items-start gap-1"><svg class="w-3 h-3 mt-0.5 text-pj-green-main shrink-0" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg> กลุ่มของตกแต่งต่างๆ</li>
+                        <li class="flex items-start gap-1"><svg class="w-3 h-3 mt-0.5 text-pj-green-main shrink-0" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg> ออกแบบป้าย</li>
+                        <li class="flex items-start gap-1"><svg class="w-3 h-3 mt-0.5 text-pj-green-main shrink-0" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg> งานป้ายปล่อยเอฟ</li>
+                        <li class="flex items-start gap-1"><svg class="w-3 h-3 mt-0.5 text-pj-green-main shrink-0" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="8"/></svg> สติ๊กเกอร์เฟส/ไลน์</li>
+                    </ul>
+                    <div class="bg-pj-green-light/10 p-3 rounded-xl text-xs leading-relaxed border border-pj-green-light/20">
+                        ออกแบบรันงานตามคิว รอ 1-2 วัน ต้องการด่วนบวกค่าเร่งได้ค่ะ 💚
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="relative mr-8 mt-4">
+            <div class="shape-bubble-left bg-pj-green-main p-5 shadow-soft z-10 text-pj-white">
+                <div class="flex items-center gap-2 mb-3">
+                    <h2 class="font-eng text-2xl font-bold tracking-wide">Portfolio</h2>
+                </div>
+                <div class="flex flex-col gap-2">
+                    <a href="https://drive.google.com/drive/folders/1KjWFqNjt4oYMFl4Ui223XXL5KSBQKbG7" target="_blank" class="bg-pj-white text-pj-green-dark py-2 px-4 rounded-full text-sm font-semibold flex justify-between items-center hover:bg-pj-cream-light transition-colors">
+                        ตัวอย่างงานป้ายออกแบบ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/18G9xf3q76SdV-dZ80Z0NnHalqLI0pSG3" target="_blank" class="bg-pj-white text-pj-green-dark py-2 px-4 rounded-full text-sm font-semibold flex justify-between items-center hover:bg-pj-cream-light transition-colors">
+                        ตัวอย่างงานปล่อยเอฟ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                    <a href="https://drive.google.com/drive/folders/1PUWkzXL4nS5Fn2LkJkbO211-1KKkeaim" target="_blank" class="bg-pj-white text-pj-green-dark py-2 px-4 rounded-full text-sm font-semibold flex justify-between items-center hover:bg-pj-cream-light transition-colors">
+                        ตัวอย่างงานสติ๊กเกอร์ <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="9 18 15 12 9 6"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="ml-4 mr-4 mt-2 relative">
+            <div class="bg-pj-white rounded-[30px] p-1 shadow-soft border border-pj-green-light relative z-10">
+                <div class="bg-pj-cream-main/30 rounded-[26px] p-5">
+                    <div class="text-center mb-4">
+                        <div class="inline-flex bg-pj-green-dark text-pj-white font-eng font-bold px-5 py-1.5 rounded-full mb-2 shadow-sm">
+                            Order Steps
+                        </div>
+                        <h3 class="text-xl font-bold italic text-pj-green-main">ราคาเริ่มต้นหลักสิบ</h3>
+                    </div>
+                    <div class="space-y-3 text-sm">
+                        <div class="bg-pj-white p-4 rounded-xl shadow-sm border border-pj-green-light/20">
+                            <p class="font-bold text-pj-green-dark mb-2">ขั้นตอนการสั่งป้าย</p>
+                            <ul class="text-xs space-y-2">
+                                <li>1. ส่งตัวอย่างงานที่อยากได้</li>
+                                <li>2. บรีฟรายละเอียดให้ครบถ้วน</li>
+                                <li>3. แจ้งยอด ชำระเงิน = ลงคิว</li>
+                                <li>4. รอรับงานตามคิว</li>
+                            </ul>
+                            <div class="mt-3 pt-2 border-t border-dashed border-pj-green-light text-[10px] text-red-500 font-bold">
+                                * แก้ข้อความ +30.- / เปลี่ยนการ์ตูน +50.-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mx-4 mt-6 relative">
+            <div class="text-center mb-6 relative">
+                <div class="absolute top-1/2 left-0 w-full h-0.5 bg-pj-green-light/30 -z-10"></div>
+                <h2 class="font-eng text-3xl font-bold text-pj-green-dark inline-block bg-pj-bg px-4 uppercase">Shop Rules</h2>
+            </div>
+            <div class="grid gap-4">
+                <div class="bg-pj-white p-4 rounded-2xl shadow-sm border-t-4 border-pj-green-main relative">
+                    <h3 class="font-bold text-pj-green-main mb-2">กฎเหล็กของร้าน 📍</h3>
+                    <p class="text-xs leading-relaxed text-pj-green-dark font-medium">
+                        เช็คเลขบัญชีทุกครั้งก่อนโอน งดโอนคืนทุกกรณีหากลูกค้าโอนผิด/โอนเกิน <br><br>
+                        ยกเลิกหลังจากร้านเช็คงานแล้ว = <b>ไม่คืนเงินทุกกรณี</b>
+                    </p>
+                </div>
+                <div class="bg-pj-white p-4 rounded-2xl shadow-sm border-t-4 border-pj-green-dark relative">
+                    <h3 class="font-bold text-pj-green-main mb-2">การเข้ากลุ่มต่างๆ</h3>
+                    <ul class="text-[11px] space-y-1 font-medium">
+                        <li>• ส่งรูปกลุ่ม -> โอนเงิน -> แจ้งสลิปไอดี</li>
+                        <li>• บางกลุ่มรอดึงเมลภายใน 24 ชม.</li>
+                        <li>• หากรีบใช้งานให้สอบถามก่อนโอนนะคะ</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-8 mb-12 flex flex-col items-center">
+            <h2 class="font-eng text-xl font-bold text-pj-green-dark mb-4 uppercase tracking-widest">Contact Us</h2>
+            <div class="flex gap-4">
+                <a href="https://www.facebook.com/share/18YeQBvzdy/?mibextid=wwXIfr" target="_blank" class="w-12 h-12 bg-pj-white border-2 border-pj-green-light rounded-full flex items-center justify-center text-pj-green-main hover:bg-pj-green-main hover:text-pj-white transition-all shadow-sm">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                </a>
+                <a href="https://linkbio.co/6091014sSR3EO" target="_blank" class="w-12 h-12 bg-pj-white border-2 border-pj-green-light rounded-full flex items-center justify-center text-pj-green-main hover:bg-pj-green-main hover:text-pj-white transition-all shadow-sm">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                </a>
+            </div>
+            <p class="text-xs font-semibold text-pj-green-dark/40 mt-6">Thank you for choosing Annter Shop 🫶🏻</p>
+        </section>
+
+    </main>
+
+    <script>
+        function openModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.remove('inactive');
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+        function closeModal(id) {
+            const modal = document.getElementById(id);
+            if(modal) {
+                modal.classList.remove('active');
+                modal.classList.add('inactive');
+                document.body.style.overflow = '';
+            }
+        }
+    </script>
+</body>
+</html>
